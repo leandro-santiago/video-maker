@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "git@github.com:leandro-santiago/video-maker.git",
   "author": "Leandro <leandrosantiagoa@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
