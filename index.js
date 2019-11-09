@@ -1,29 +1,17 @@
 const readline = require('readline-sync');
 const robots = {
-  text: require("./robots/text.js")
+  input: require("./robots/input.js"),
+  text: require("./robots/text.js"),
+  state: require("./robots/state.js")
 }
 
 async function start() {
-  const content = {
-    maximumSentences: 7
-  };
-  content.searchTerm = askAndReturnSearchTerm();
-  content.prefix = askAndReturnPrefix();
+  robots.input();
+  await robots.text();
 
-  await robots.text(content);
+  const content = robots.state.load();
 
-  function askAndReturnSearchTerm() {
-    return readline.question("Type a Wikepedia search term: ");
-  }
-
-  function askAndReturnPrefix() {
-    const prefixes = ["Who is", "What is", "The history of"];
-    const selectedPrefixIndex = readline.keyInSelect(prefixes, "Choose one option: ");
-
-    return prefixes[selectedPrefixIndex];
-  }
-
-  console.log(JSON.stringify(content, null, 4));
+  console.dir(content, {depth: null});
 }
 
 start();
