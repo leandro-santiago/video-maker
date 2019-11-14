@@ -7,9 +7,9 @@ const googleSearchCredentials = require('../credentials/google-search.json');
 async function robot() {
   const content = state.load();
 
-  //await fetchImagesOfAllSentences(content);
+  await fetchImagesOfAllSentences(content);
   await downloadAllImages(content);
-  //state.save(content);
+  state.save(content);
   
   async function fetchImagesOfAllSentences(content) {
     for (const sentence of content.sentences) {
@@ -63,7 +63,7 @@ async function robot() {
 
   async function downloadAndSave(url, fileName) {
     return imageDownloader.image({
-      url, url,
+      url: url,
       dest: `./content/${fileName}`
     });
   }

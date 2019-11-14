@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "algorithmia": "^0.3.10",
+    "gm": "^1.23.1",
     "googleapis": "^45.0.0",
     "ibm-watson": "^5.1.0",
     "image-downloader": "^3.5.0",
